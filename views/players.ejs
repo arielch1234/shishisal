@@ -1,0 +1,86 @@
+<%- include('./partials/nav.ejs')%>
+<section class="container">
+  <% data.forEach(function (player) { %>
+
+  <div class="active-with-click">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <article class="material-card Red">
+              <h2>
+                  <span><%=player.name%></span>
+                  <strong>
+                      <i class="fa fa-fw fa-star"></i>
+                      <%=player.main_text%>
+                  </strong>
+              </h2>
+              <div class="mc-content">
+                  <div class="img-container">
+                    <img src="/public/players images/<%=player.name%>.JPG" class="img-responsive" alt="/public/<%=player.name%>.jpg" style='width: fit-content; height: 100%;'>
+                      <!--<img class="img-responsive" src="http://u.lorenzoferrara.net/marlenesco/material-card/thumb-christopher-walken.jpg">-->
+                  </div>
+                  <div class="mc-description" style="overflow: inherit;">
+                      <p>shooting: <%for(var i=0; i<player.shooting; i++){%>
+                        <i class="fa fa-fw fa-star"></i>
+                        <%}%>
+                        <br></p>
+                      <p>passing: <%for(var i=0; i<player.passing; i++){%>
+                        <i class="fa fa-fw fa-star"></i>
+                        <%}%>
+                        <br></p>
+                      <p>rebounding: <%for(var i=0; i<player.rebounding; i++){%>
+                        <i class="fa fa-fw fa-star"></i>
+                        <%}%>
+                        <br></p>
+                      <p>stealing: <%for(var i=0; i<player.stealing; i++){%>
+                        <i class="fa fa-fw fa-star"></i>
+                        <%}%>
+                        <br></p>
+                      <p>trashing: <%for(var i=0; i<player.trashing; i++){%>
+                        <i class="fa fa-fw fa-star"></i>
+                        <%}%>
+                        <br></p>
+                  </div>
+              </div>
+              <a class="mc-btn-action">
+                  <i class="fa fa-bars"></i>
+              </a>
+              <div class="mc-footer">
+
+              </div>
+          </article>
+          </div>
+      </div>
+      <%})%>
+    </section>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script  src="/public/script.js"></script>
+
+<!-- <div class="flex-box-container-2" style= 'display: flex;' id="player_cards">
+    <% data.forEach(function (player) { %>
+        <div class="card ">
+          <div class="img-container" style="width: 120px;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;">
+            <img src="/public/<%=player.name%>.JPG" class="" alt="/public/<%=player.name%>.jpg" style="height: auto;width: 100%;
+display:block;">
+            <span class="store-item-icon">
+            </span>
+            <div class="store-item-icon">
+              <p>shooting: <%=player.shooting%> <br> passing: <%=player.passing%> <br>
+              rebounding: <%=player.rebounding%> <br>rebounding: <%=player.rebounding%> <br>
+            stealing: <%=player.stealing%> <br>trashing: <%=player.trashing%> <br></p>
+            </div>
+          </div>
+
+          <div class="card-body" style="overflow-y: auto;overflow-x: auto; width: 300px; height: 100px;">
+            <div class="card-text d-flex justify-content-between text-capitalize" style= 'display: flex; flex-diraction:column;'>
+              <h5 id="store-item-name"><%=player.name%> <br></h5>
+              <h5 class="store-item-value"><strong id="store-item-price" class="font-weight-bold">"<%=player.main_text%>"</strong></h5>
+            </div>
+          </div>
+        </div>
+    <% }) %>
+    </div>
+-->

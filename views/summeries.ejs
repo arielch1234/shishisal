@@ -1,0 +1,41 @@
+<%- include('./partials/nav.ejs')%>
+<h1>summeries</h1>
+<div class="flex" style="" id="summery">
+  <% data.forEach(function (sum) { %>
+  <div class="card col-md-6 col-sm-6 col-xs-12 text-right" >
+    <div class="card-body">
+      <h3 class="card-header">writer: <%=sum.author%>, date: <%=sum.writen%> </h3>
+      <p class="card-text" style="overflow: scroll; min-height: 300px; max-height:300px;"><%=sum.text%>
+      <% if (sum.img){%>
+        +
+        <%var img_path ='/public/' + sum.writen + '.jpg'%>
+        <%=console.log(img_path)%>
+        <img src=<%=img_path%> id="<%=sum.writen%>" alt="Avatar" style="width:100%; max-height:100px;" onclick = "makeFullScreen(this.id)">
+        </p>
+      <%}%>
+    </div>
+  </div>
+</div>
+<%})%>
+
+<script>
+  function makeFullScreen(idd) {
+    console.log(idd)
+    var divObj = document.getElementById(idd);
+ if (divObj.requestFullscreen) {
+   divObj.requestFullscreen();
+ }
+ else if (divObj.msRequestFullscreen) {
+   divObj.msRequestFullscreen();
+ }
+ else if (divObj.mozRequestFullScreen) {
+   divObj.mozRequestFullScreen();
+ }
+ else if (divObj.webkitRequestFullscreen) {
+   divObj.webkitRequestFullscreen();
+ } else {
+   console.log("Fullscreen API is not supported");
+ }
+
+}
+</script>
